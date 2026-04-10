@@ -15,7 +15,7 @@ const config = {
   physics: { 
     default: 'arcade',
     arcade: {
-        gravity: { y: 0 },
+        gravity: { y: 300 },
         debug: false
         }
     },
@@ -33,6 +33,7 @@ this.load.spritesheet('dude', dudeImg, { frameWidth: 32, frameHeight: 164 });}
 function create() {
   
   player = this.physics.add.sprite(100, 500, 'dude');
+  player.setCollideWorldounds(true);
   player.setScale(1);
   cursors = this.input.keyboard.createCursorKeys();
   
@@ -54,7 +55,7 @@ function create() {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
   }); 
 
-  let scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+  let scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: 'white' });
 } 
 
 function update () {
