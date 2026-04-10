@@ -1,6 +1,6 @@
 import Phaser, { Physics } from "phaser";
 import './style.css';
-import dudeImg from "./assets/walking_dude.png"
+import dudeImg from "./assets/Yurei/Walk.png"
 
 let player;
 let stars;
@@ -28,15 +28,18 @@ const config = {
 
 
 function preload () {
-this.load.spritesheet('dude', dudeImg, { frameWidth: 32, frameHeight: 48 });}
+this.load.spritesheet('dude', dudeImg, { frameWidth: 32, frameHeight: 164 });}
 
 function create() {
-  player = this.physics.add.sprite(450, 500, 'dude');
+  
+  player = this.physics.add.sprite(100, 500, 'dude');
+  player.setScale(1);
   cursors = this.input.keyboard.createCursorKeys();
+  
 
   this.anims.create({
     key: 'left',
-    frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 5 }),
+    frames: this.anims.generateFrameNumbers('dude', { start: 1, end: 0 }),
     frameRate: 10,
     repeat: -1 
   }); 
@@ -60,14 +63,17 @@ function update () {
     player.anims.play('left', true);
   }
 
-  if (cursors.up.isDown && player.body.touching.down) {
-      player.setVelocityY(-330)
-  }
 
   if (cursors.right.isDown) {
     player.setVelocityX(160);
     player.anims.play('right', true);
   } 
+
+  if (cursors.up.isDown && player.body.touching.down) {
+      player.setVelocityY(-330)
+      player.anims.play('up', true);
+  }
+
 }
 
 
