@@ -3,6 +3,7 @@ import './style.css';
 import dudeImg from "./assets/Yurei/Walk.png";
 import groundImg from "./assets/ground.png"; 
 import coinImg from "./assets/coin.png";
+import platformImg from "./assets/platform.png";
 
 let player;
 let platforms;
@@ -31,10 +32,10 @@ const config = {
 };
 
 function preload() {
-    // Todo lo que se carga debe ir DENTRO de esta función
     this.load.spritesheet('dude', dudeImg, { frameWidth: 128, frameHeight: 128 });
     this.load.image('ground', groundImg);
-    this.load.image('star', coinImg); 
+    this.load.image('star', coinImg);
+    this.load.image('platform', platformImg); 
 }
 
 function create() {
