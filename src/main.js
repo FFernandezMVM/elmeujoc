@@ -63,7 +63,7 @@ function create() {
     }); 
 
     stars.children.iterate((child) => {
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));;
+        child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.6));;
     }); 
 
 
